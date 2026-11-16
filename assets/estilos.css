@@ -64,7 +64,7 @@ h2{font-family:"Staatliches",sans-serif;font-weight:400;font-size:clamp(44px,6vw
 .tarjeta::before{content:"";position:absolute;left:-1px;top:-1px;width:56px;height:5px;background:var(--lima)}
 .num{color:var(--lima);font-weight:800;font-size:16px;letter-spacing:.06em}
 h3{font-size:24px;font-weight:800;line-height:1.2;margin-top:26px}
-.tarjeta p:not(.num):not(.chip):not(.periodo):not(.cifra):not(.lectura):not(.fuente){color:var(--gris);margin-top:12px}
+.tarjeta p:not(.num):not(.chip):not(.periodo):not(.cifra):not(.lectura):not(.fuente):not(.consultar){color:var(--gris);margin-top:12px}
 
 /* Casos */
 .caso{display:flex;flex-direction:column}
@@ -193,18 +193,49 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 
 /* Prueba: video en la portada */
 .portada-grilla{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:center}
-.portada-video{width:100%;height:auto;aspect-ratio:4/5;display:block;border:2px solid var(--borde);box-shadow:8px 8px 0 var(--lima);background:var(--caja)}
-@media (max-width:860px){.portada-grilla{grid-template-columns:1fr}.portada-video{max-width:420px}}
+@media (max-width:860px){.portada-grilla{grid-template-columns:1fr}}
 
 /* Movimiento 3D (solo con JS y si la persona no pidió menos movimiento) */
-html.mov .tarjeta,html.mov .preguntas details,html.mov .pasos li,html.mov .portada-video{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(48px);transform-origin:50% 100%;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;transition-delay:calc(var(--orden,0) * 110ms)}
+html.mov .tarjeta,html.mov .preguntas details,html.mov .pasos li{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(48px);transform-origin:50% 100%;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;transition-delay:calc(var(--orden,0) * 110ms)}
 html.mov .tarjeta.visto,html.mov .preguntas details.visto,html.mov .pasos li.visto{opacity:1;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(0)}
-html.mov .portada-video{transform:perspective(1200px) rotateY(-18deg) rotateX(6deg) translateX(40px)}
-html.mov .portada-video.visto{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition-delay:.15s}
 html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s ease;transition-delay:0s;box-shadow:8px 8px 0 var(--lima)}
 html.mov .cifra{text-shadow:0 0 0 var(--lima);transition:text-shadow .6s cubic-bezier(.2,.8,.2,1) .5s}
 html.mov .visto .cifra{text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima),8px 8px 0 var(--lima)}
-.portada-grilla h1{font-size:clamp(56px,7.4vw,108px)}
 .portada-grilla .resumen-casos{margin-top:22px;font-size:clamp(16px,1.6vw,19px)}
 .portada-grilla h1{max-width:none;font-size:clamp(56px,6.6vw,96px)}
 .portada:has(.portada-grilla){padding-top:clamp(64px,8vw,110px)}
+
+/* Marcador de resultados (portada) */
+.marcador-titulo{color:var(--lima);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.marcador-lista{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.marcador-lista li:first-child{grid-column:1/-1}
+.marcador-lista a{display:block;height:100%;background:var(--caja);border:1px solid var(--borde);padding:18px 18px 16px;text-decoration:none;color:var(--blanco);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.marcador-lista a:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--lima);border-color:var(--lima)}
+.cifra-m{display:block;font-family:"Staatliches",sans-serif;font-size:clamp(46px,4.6vw,64px);line-height:.9;color:var(--blanco);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima)}
+.marcador-lista li:first-child .cifra-m{font-size:clamp(72px,7.4vw,108px);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima)}
+.dato{display:block;margin-top:10px;color:var(--gris);font-size:14px;font-weight:600;line-height:1.35}
+.marcador-pie{color:var(--gris-2);font-size:13px;margin-top:12px}
+@media (max-width:860px){.marcador{margin-top:8px}}
+
+/* Casos compactos */
+.caso{scroll-margin-top:88px}
+.detalle-caso{margin-top:18px;border-bottom:0}
+.detalle-caso summary{min-height:44px;display:flex;align-items:center}
+.captura-img img{width:100%;height:auto;margin-top:14px;border:1px solid var(--borde)}
+.cierre-casos{margin-top:48px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
+.cierre-casos p{font-family:"Staatliches",sans-serif;font-size:clamp(30px,3.4vw,44px);line-height:1}
+
+/* Servicios en dos niveles, clickeables */
+.tarjeta-link{display:block;text-decoration:none;color:inherit}
+.tarjeta-link h3{color:var(--blanco)}
+.tarjeta p.consultar{margin-top:18px;color:var(--lima);font-weight:800;font-size:15px;text-decoration:underline;text-underline-offset:4px}
+.tambien{color:var(--gris-2);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-top:36px}
+.servicios-secundarios{margin-top:14px}
+.tarjeta-chica{padding:24px 24px 22px}
+.tarjeta-chica h3{font-size:19px}
+
+/* Marcador: entrada al cargar */
+html.mov .marcador-lista li{opacity:0;transform:perspective(900px) rotateX(18deg) translateY(30px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--orden,0) * 90ms)}
+html.mov .marcador-lista li.visto{opacity:1;transform:none}
+.detalle-caso summary{font-size:15px;color:var(--lima);padding:10px 34px 10px 0;gap:8px}
+@media (max-width:860px){.marcador{display:none}}
