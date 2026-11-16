@@ -135,3 +135,12 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 .caso-cuerpo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px 48px;align-items:end}
 .caso-cuerpo table{margin-top:0}
 @media (max-width:860px){.caso-cuerpo{grid-template-columns:1fr}.caso-cuerpo table{margin-top:10px}}
+
+/* Captura del panel dentro de cada caso */
+.captura{margin-top:14px;border:0}
+.captura summary{display:inline-flex;align-items:center;gap:8px;padding:0;font-size:14px;font-weight:800;color:var(--lima);cursor:pointer}
+.captura summary::after{position:static;width:8px;height:8px;transform:rotate(45deg);margin-top:-4px}
+.captura[open] summary::after{transform:rotate(225deg);margin-top:4px}
+.captura img{display:block;width:100%;height:auto;margin-top:14px;border:1px solid var(--borde)}
+.captura summary::after{content:"+";position:static;border:0;width:auto;height:auto;transform:none;margin:0;font-size:18px;line-height:1}
+.captura[open] summary::after{content:"−";transform:none;margin:0}
