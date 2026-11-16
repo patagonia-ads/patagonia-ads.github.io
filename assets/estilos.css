@@ -1,0 +1,137 @@
+@font-face{font-family:"Staatliches";src:url("/assets/fonts/staatliches.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Raleway";src:url("/assets/fonts/raleway.woff2") format("woff2");font-weight:100 900;font-display:swap}
+
+:root{
+  --negro:#0A0A0A;
+  --caja:#141414;
+  --borde:#2A2A28;
+  --blanco:#F5F5F0;
+  --gris:#B5B5AF;
+  --gris-2:#8A8A84;
+  --lima:#C8FF00;
+  --ancho:1120px;
+  --aire:clamp(72px,10vw,128px);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--negro);color:var(--blanco);font-family:"Raleway",system-ui,sans-serif;font-size:17px;line-height:1.6;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+
+.contenedor{width:min(var(--ancho),100% - 40px);margin-inline:auto}
+.saltar{position:absolute;left:-9999px}
+.saltar:focus{left:16px;top:16px;background:var(--lima);color:var(--negro);padding:8px 12px;z-index:100}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Barra superior */
+.barra{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--borde)}
+.barra-interior{display:flex;align-items:center;gap:32px;height:64px}
+.marca{font-family:"Staatliches",sans-serif;font-size:24px;letter-spacing:.04em;text-decoration:none}
+.menu{display:flex;gap:24px;margin-left:auto}
+.menu a{text-decoration:none;color:var(--gris);font-size:15px;font-weight:600}
+.menu a:hover{color:var(--lima)}
+
+/* Botones */
+.boton{display:inline-block;background:var(--lima);color:var(--negro);font-weight:800;font-size:17px;text-decoration:none;padding:15px 30px;border:2px solid var(--lima);transition:transform .15s ease,box-shadow .15s ease}
+.boton:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--blanco)}
+.boton-chico{padding:9px 18px;font-size:15px}
+.boton-negro{background:var(--negro);color:var(--lima);border-color:var(--negro)}
+.boton-negro:hover{box-shadow:3px 3px 0 var(--blanco)}
+:focus-visible{outline:3px solid var(--lima);outline-offset:3px}
+.contacto :focus-visible{outline-color:var(--negro)}
+
+/* Portada */
+.portada{padding:clamp(80px,14vw,170px) 0 clamp(64px,10vw,120px);border-bottom:1px solid var(--borde)}
+.etiqueta{display:inline-block;background:var(--lima);color:var(--negro);font-weight:800;font-size:14px;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px}
+h1{font-family:"Staatliches",sans-serif;font-weight:400;font-size:clamp(56px,10vw,132px);line-height:.96;letter-spacing:.005em;margin-top:28px;max-width:15ch}
+.resalte{background:var(--lima);color:var(--negro);padding:.02em .12em 0;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.bajada{color:var(--gris);font-size:clamp(17px,2vw,20px);max-width:56ch;margin-top:32px}
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px;margin-top:40px}
+.credenciales{color:var(--gris-2);font-size:14px;font-weight:600}
+
+/* Secciones */
+.seccion{padding:var(--aire) 0;border-bottom:1px solid var(--borde)}
+.ojal{color:var(--lima);font-weight:800;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+h2{font-family:"Staatliches",sans-serif;font-weight:400;font-size:clamp(44px,6vw,72px);line-height:.95;margin-top:14px}
+.intro{color:var(--gris);max-width:62ch;margin-top:18px}
+
+/* Grillas y tarjetas */
+.grilla{display:grid;gap:20px;margin-top:48px}
+.grilla-3{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.grilla-2{grid-template-columns:repeat(auto-fill,minmax(440px,1fr))}
+.tarjeta{position:relative;background:var(--caja);border:1px solid var(--borde);padding:32px 30px 30px}
+.tarjeta::before{content:"";position:absolute;left:-1px;top:-1px;width:56px;height:5px;background:var(--lima)}
+.num{color:var(--lima);font-weight:800;font-size:16px;letter-spacing:.06em}
+h3{font-size:24px;font-weight:800;line-height:1.2;margin-top:26px}
+.tarjeta p:not(.num):not(.chip):not(.periodo):not(.cifra):not(.lectura):not(.fuente){color:var(--gris);margin-top:12px}
+
+/* Casos */
+.caso{display:flex;flex-direction:column}
+.caso-cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.chip{background:var(--lima);color:var(--negro);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px}
+.periodo{color:var(--gris);font-size:14px;font-weight:600}
+.cifra{font-family:"Staatliches",sans-serif;font-size:clamp(72px,9vw,104px);line-height:.9;margin-top:26px;color:var(--blanco);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima)}
+.lectura{font-weight:700;font-size:19px;line-height:1.35;margin-top:14px}
+table{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px;font-variant-numeric:tabular-nums lining-nums}
+th,td{padding:10px 0;border-bottom:1px solid var(--borde);text-align:right}
+th[scope=row],thead th:first-child{text-align:left;font-weight:600;color:var(--gris);padding-right:12px}
+td,thead th:not(:first-child){padding-left:12px}
+thead th{color:var(--gris-2);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding-top:0}
+td.mejora{color:var(--lima);font-weight:800}
+tr.clave th,tr.clave td{color:var(--blanco);font-weight:800}
+tr.clave td.mejora{color:var(--lima)}
+.fuente{color:var(--gris-2);font-size:13px;margin-top:16px}
+
+/* Valoraciones */
+.estrellas{display:flex;gap:6px;margin-top:20px}
+.estrellas svg{width:30px;height:30px;fill:var(--lima)}
+.resena{display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.resena blockquote p{font-size:18px;line-height:1.55;color:var(--blanco)}
+.resena figcaption{color:var(--gris);font-size:15px}
+.resena figcaption strong{color:var(--lima);font-weight:800}
+
+/* Preguntas */
+.preguntas{margin-top:40px;border-top:1px solid var(--borde)}
+details{border-bottom:1px solid var(--borde)}
+summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:14px;padding:24px 44px 24px 0;font-weight:800;font-size:clamp(18px,2.2vw,22px);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:2px solid var(--lima);border-bottom:2px solid var(--lima);transform:translateY(-75%) rotate(45deg);transition:transform .2s ease}
+details[open] summary::after{transform:translateY(-25%) rotate(225deg)}
+summary .num{font-size:15px}
+details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
+
+/* Contacto */
+.contacto{background:var(--lima);color:var(--negro);padding:var(--aire) 0}
+.contacto .ojal{color:var(--negro)}
+.contacto h2{max-width:16ch}
+.contacto p{margin-top:18px;font-weight:600}
+.enlace{font-weight:800;text-underline-offset:4px}
+
+/* Pie */
+.pie{padding:32px 0;color:var(--gris-2);font-size:14px}
+
+@media (max-width:860px){
+  .menu{display:none}
+  .barra-interior{justify-content:space-between}
+  .grilla-2{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .grilla-3{grid-template-columns:1fr}
+  .tarjeta{padding:28px 22px 24px}
+  table{font-size:13.5px}
+  thead th{letter-spacing:.04em;font-size:11px}
+  td,thead th:not(:first-child){padding-left:8px}
+  details p{padding-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .boton,summary::after{transition:none}
+}
+
+/* Caso ancho (quinto caso) */
+.caso-ancho{grid-column:1/-1}
+.caso-cuerpo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px 48px;align-items:end}
+.caso-cuerpo table{margin-top:0}
+@media (max-width:860px){.caso-cuerpo{grid-template-columns:1fr}.caso-cuerpo table{margin-top:10px}}

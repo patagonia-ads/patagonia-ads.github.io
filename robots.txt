@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://patagonia-ads.github.io/sitemap.xml
