@@ -204,3 +204,7 @@ html.mov .portada-video.visto{transform:perspective(1200px) rotateY(-6deg) rotat
 html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s ease;transition-delay:0s;box-shadow:8px 8px 0 var(--lima)}
 html.mov .cifra{text-shadow:0 0 0 var(--lima);transition:text-shadow .6s cubic-bezier(.2,.8,.2,1) .5s}
 html.mov .visto .cifra{text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima),8px 8px 0 var(--lima)}
+.portada-grilla h1{font-size:clamp(56px,7.4vw,108px)}
+.portada-grilla .resumen-casos{margin-top:22px;font-size:clamp(16px,1.6vw,19px)}
+.portada-grilla h1{max-width:none;font-size:clamp(56px,6.6vw,96px)}
+.portada:has(.portada-grilla){padding-top:clamp(64px,8vw,110px)}
