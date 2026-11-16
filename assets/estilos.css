@@ -190,3 +190,17 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 .pasos strong{font-weight:800}
 .contacto p.cupo{font-weight:800}
 .contacto p.claves{font-family:"Staatliches",sans-serif;font-size:clamp(26px,3vw,34px);line-height:1.1;margin-top:28px;font-weight:400}
+
+/* Prueba: video en la portada */
+.portada-grilla{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:center}
+.portada-video{width:100%;height:auto;aspect-ratio:4/5;display:block;border:2px solid var(--borde);box-shadow:8px 8px 0 var(--lima);background:var(--caja)}
+@media (max-width:860px){.portada-grilla{grid-template-columns:1fr}.portada-video{max-width:420px}}
+
+/* Movimiento 3D (solo con JS y si la persona no pidió menos movimiento) */
+html.mov .tarjeta,html.mov .preguntas details,html.mov .pasos li,html.mov .portada-video{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(48px);transform-origin:50% 100%;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;transition-delay:calc(var(--orden,0) * 110ms)}
+html.mov .visto{opacity:1;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(0)}
+html.mov .portada-video{transform:perspective(1200px) rotateY(-18deg) rotateX(6deg) translateX(40px)}
+html.mov .portada-video.visto{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);transition-delay:.15s}
+html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s ease;transition-delay:0s;box-shadow:8px 8px 0 var(--lima)}
+html.mov .cifra{text-shadow:0 0 0 var(--lima);transition:text-shadow .6s cubic-bezier(.2,.8,.2,1) .5s}
+html.mov .visto .cifra{text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima),8px 8px 0 var(--lima)}
