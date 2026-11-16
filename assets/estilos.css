@@ -200,7 +200,7 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 html.mov .tarjeta,html.mov .preguntas details,html.mov .pasos li{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(48px);transform-origin:50% 100%;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;transition-delay:calc(var(--orden,0) * 110ms)}
 html.mov .tarjeta.visto,html.mov .preguntas details.visto,html.mov .pasos li.visto{opacity:1;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(0)}
 html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s ease;transition-delay:0s;box-shadow:8px 8px 0 var(--lima)}
-.portada-grilla .resumen-casos{margin-top:22px;font-size:clamp(16px,1.6vw,19px)}
+.portada-grilla .resumen-casos{margin-top:clamp(28px,3vw,38px);font-size:clamp(26px,2.8vw,36px)}
 .portada-grilla h1{max-width:none;font-size:clamp(56px,6.6vw,96px)}
 .portada:has(.portada-grilla){padding-top:clamp(64px,8vw,110px)}
 
@@ -269,3 +269,8 @@ html:has(.ventana-caso[open]){overflow:hidden}
 @media (prefers-reduced-motion:no-preference){.ventana-cuerpo.cambia{animation:caso-cambia .4s cubic-bezier(.2,.8,.2,1)}}
 @keyframes caso-cambia{from{opacity:0;transform:perspective(1000px) rotateY(-8deg) translateX(24px)}to{opacity:1;transform:none}}
 @media (max-width:620px){.ventana-nav{bottom:-28px;margin:28px -20px -28px;padding:14px 20px 18px}}
+
+/* Portada: resumen de casos en tres líneas */
+.resumen-casos{font-family:"Staatliches",sans-serif;font-weight:400;line-height:1.08;letter-spacing:.01em}
+.resumen-casos a{display:inline-block;border-bottom:0;padding:2px 0 2px 18px;border-left:4px solid var(--lima);transition:color .15s ease}
+.resumen-casos a span{display:block}
