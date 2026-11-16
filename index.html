@@ -23,22 +23,30 @@
 <link rel="preload" href="/assets/fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/estilos.css">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW1WHZGL38"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YW1WHZGL38');
-</script>
-<script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  !function(f,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
   fbq('set', 'autoConfig', false, '29033560016305530');
   fbq('init', '29033560016305530');
   fbq('track', 'PageView');
+  // GA4 y Meta se cargan al primer gesto de la persona o 3 s después de cargada la página.
+  // Hasta entonces los eventos quedan en cola y se envían igual.
+  (function () {
+    var hecho = false;
+    function cargar() {
+      if (hecho) return; hecho = true;
+      ['https://www.googletagmanager.com/gtag/js?id=G-YW1WHZGL38', 'https://connect.facebook.net/en_US/fbevents.js'].forEach(function (src) {
+        var e = document.createElement('script'); e.async = true; e.src = src; document.head.appendChild(e);
+      });
+    }
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) { addEventListener(ev, cargar, { once: true, passive: true }); });
+    addEventListener('load', function () { setTimeout(cargar, 3000); });
+  })();
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=29033560016305530&amp;ev=PageView&amp;noscript=1"></noscript>
 
@@ -88,7 +96,7 @@
         { "@type": "Question", "name": "¿Trabajás con negocios de todo el país?",
           "acceptedAnswer": { "@type": "Answer", "text": "Sí. Trabajo a distancia con marcas de Buenos Aires, Mar del Plata, Bariloche y la Patagonia." } },
         { "@type": "Question", "name": "¿Necesito página web?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No siempre. Para recibir consultas por WhatsApp alcanza con Instagram y WhatsApp Business. Para vender online conviene una tienda con la medición bien configurada." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "No siempre. Para recibir consultas por WhatsApp alcanza con Instagram y WhatsApp Business. Para vender por internet conviene una tienda con la medición bien configurada." } },
         { "@type": "Question", "name": "¿Cuándo se ven resultados?",
           "acceptedAnswer": { "@type": "Answer", "text": "El primer mes ordena la cuenta y la medición. Desde ahí cada cambio de presupuesto se decide con datos de tu negocio." } }
       ]
@@ -105,10 +113,10 @@
   <div class="contenedor barra-interior">
     <a class="marca" href="/" aria-label="Patagonia Ads, inicio">PATAGONIA ADS</a>
     <nav class="menu" aria-label="Secciones">
-      <a href="#servicios">Servicios</a>
-      <a href="#metodo">Método</a>
       <a href="#casos">Casos</a>
       <a href="#valoraciones">Valoraciones</a>
+      <a href="#metodo">Cómo trabajo</a>
+      <a href="#servicios">Servicios</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
     <a class="boton boton-chico" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20te%20escribo%20desde%20la%20web." data-ubicacion="barra" rel="noopener" target="_blank">Escribime.</a>
@@ -129,54 +137,192 @@
         <p class="credenciales">Certificado en Google Ads · +3 años gestionando Meta Ads</p>
       </div>
       </div>
-      <video class="portada-video" src="/assets/video/hero-capas.mp4" poster="/assets/video/hero-capas.jpg" width="720" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Animación: las cuatro capas detrás de cada venta, el anuncio, a quién le llega, la medición y el margen."></video>
+      <div class="marcador">
+        <p class="marcador-titulo">Casos reales</p>
+        <ul class="marcador-lista">
+          <li><a href="#caso-joyeria"><span class="cifra-m">12,1×</span><span class="dato">de retorno · Joyería</span></a></li>
+          <li><a href="#caso-moda"><span class="cifra-m">8,1×</span><span class="dato">de retorno · Moda femenina</span></a></li>
+          <li><a href="#caso-muebleria"><span class="cifra-m">5,4×</span><span class="dato">de retorno sobre Meta · Mueblería</span></a></li>
+          <li><a href="#caso-hotel"><span class="cifra-m">−44%</span><span class="dato">de costo por venta · Hotel</span></a></li>
+          <li><a href="#caso-autos"><span class="cifra-m">−15%</span><span class="dato">de costo por contacto · Alquiler de autos</span></a></li>
+        </ul>
+        <p class="marcador-pie">Cada número lleva a su caso.</p>
+      </div>
     </div>
   </section>
 
-  <section id="servicios" class="seccion">
+  <section id="casos" class="seccion">
     <div class="contenedor">
-      <p class="ojal">01 · Servicios</p>
-      <h2>Qué hago</h2>
-      <p class="intro">Cinco formas de trabajar juntos. Todas parten del mismo número: cuánto te deja cada venta.</p>
+      <p class="ojal">01 · Casos</p>
+      <h2>Casos reales</h2>
+      <p class="intro">Si el negocio vende por internet, el número grande es el retorno: cuánto vuelve por cada peso. Si busca consultas, el costo por contacto. Cada caso compara dos períodos con la misma vara.</p>
+      <div class="grilla grilla-3 casos-grilla">
+
+        <article class="tarjeta caso" id="caso-joyeria">
+          <div class="caso-cabeza">
+            <p class="chip">Joyería · Google Ads</p>
+            <p class="periodo">Septiembre → octubre 2026</p>
+          </div>
+          <p class="cifra">12,1×</p>
+          <p class="lectura">de retorno por peso invertido (antes 3,4×), con 7% más de inversión.</p>
+          <details class="detalle-caso">
+            <summary>Ver los números y la captura</summary>
+            <table>
+              <caption class="oculto">Joyería, Google Ads: septiembre contra octubre de 2026</caption>
+              <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Inversión</th><td>$696.160</td><td>$746.999</td><td>+7%</td></tr>
+                <tr><th scope="row">Compras</th><td>8</td><td>9</td><td class="mejora">+13%</td></tr>
+                <tr><th scope="row">Costo por compra</th><td>$87.020</td><td>$83.000</td><td class="mejora">−5%</td></tr>
+                <tr><th scope="row">Ingresos</th><td>$2.350.077</td><td>$9.072.508</td><td class="mejora">+286%</td></tr>
+                <tr><th scope="row">Ticket promedio</th><td>$293.760</td><td>$1.008.056</td><td class="mejora">+243%</td></tr>
+                <tr class="clave"><th scope="row">Retorno</th><td>3,4×</td><td>12,1×</td><td class="mejora">+260%</td></tr>
+              </tbody>
+            </table>
+            <p class="fuente">Fuente: Google Analytics 4, canales Paid Search y Cross-network (Google Ads). La inversión sale de Google Ads.</p>
+            <p class="captura-img"><a href="/assets/casos/panel-joya.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-joya.jpg" width="1282" height="818" loading="lazy" alt="Captura de Google Analytics 4 con compras e ingresos del tráfico de Google Ads en septiembre y octubre de 2026."></a></p>
+          </details>
+        </article>
+
+        <article class="tarjeta caso" id="caso-moda">
+          <div class="caso-cabeza">
+            <p class="chip">Moda femenina · Meta Ads</p>
+            <p class="periodo">Septiembre → octubre 2026</p>
+          </div>
+          <p class="cifra">8,1×</p>
+          <p class="lectura">de retorno por peso invertido (antes 6,6×), con la misma inversión.</p>
+          <details class="detalle-caso">
+            <summary>Ver los números y la captura</summary>
+            <table>
+              <caption class="oculto">Moda femenina, Meta Ads: septiembre contra octubre de 2026</caption>
+              <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Inversión</th><td>$803.181</td><td>$796.252</td><td>−1%</td></tr>
+                <tr><th scope="row">Compras</th><td>24</td><td>32</td><td class="mejora">+33%</td></tr>
+                <tr><th scope="row">Costo por compra</th><td>$33.466</td><td>$24.883</td><td class="mejora">−26%</td></tr>
+                <tr class="clave"><th scope="row">Retorno</th><td>6,6×</td><td>8,1×</td><td class="mejora">+24%</td></tr>
+              </tbody>
+            </table>
+            <p class="fuente">Fuente: Meta Ads, atribución por defecto de la cuenta.</p>
+            <p class="captura-img"><a href="/assets/casos/panel-moda.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-moda.jpg" width="984" height="610" loading="lazy" alt="Captura del panel de Meta Ads con los totales de la cuenta en septiembre y octubre de 2026: monto gastado, costo por compra, compras y valor de conversión."></a></p>
+          </details>
+        </article>
+
+        <article class="tarjeta caso" id="caso-muebleria">
+          <div class="caso-cabeza">
+            <p class="chip">Mueblería · Meta Ads + Google Ads</p>
+            <p class="periodo">Julio → octubre 2026</p>
+          </div>
+          <p class="cifra">5,4×</p>
+          <p class="lectura">de retorno sobre Meta (antes 3,1×), con 22% menos inversión en Meta y 34% más ventas por Instagram.</p>
+          <details class="detalle-caso">
+            <summary>Ver los números y la captura</summary>
+              <table>
+                <caption class="oculto">Mueblería, Meta Ads y Google Ads: julio contra octubre de 2026</caption>
+                <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Inversión en Meta Ads</th><td>$7.674.972</td><td>$5.954.056</td><td>−22%</td></tr>
+                  <tr><th scope="row">Inversión en Google Ads</th><td>$837 mil</td><td>$1,82 M</td><td>+117%</td></tr>
+                  <tr><th scope="row">Ventas por Instagram</th><td>$23.819.728</td><td>$31.890.475</td><td class="mejora">+34%</td></tr>
+                  <tr class="clave"><th scope="row">Retorno sobre Meta</th><td>3,1×</td><td>5,4×</td><td class="mejora">+73%</td></tr>
+                  <tr><th scope="row">Peso en las ventas del negocio</th><td>22%</td><td>41%</td><td class="mejora">+19 pts</td></tr>
+                </tbody>
+              </table>
+            <p class="fuente">Fuente: inversión, paneles de Meta Ads y Google Ads. Ventas, sistema de ventas del negocio con origen Instagram.</p>
+            <p class="captura-img"><a href="/assets/casos/panel-mueble.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-mueble.jpg" width="1332" height="1078" loading="lazy" alt="Capturas de Meta Ads y Google Ads en julio y octubre de 2026: monto gastado, conversaciones, conversiones y costo."></a></p>
+          </details>
+        </article>
+
+        <article class="tarjeta caso" id="caso-hotel">
+          <div class="caso-cabeza">
+            <p class="chip">Hotel resort · Meta Ads</p>
+            <p class="periodo">Septiembre → octubre 2026</p>
+          </div>
+          <p class="cifra">−44%</p>
+          <p class="lectura">de costo por venta web, con casi la mitad de la inversión.</p>
+          <details class="detalle-caso">
+            <summary>Ver los números y la captura</summary>
+            <table>
+              <caption class="oculto">Hotel resort, Meta Ads: septiembre contra octubre de 2026</caption>
+              <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Inversión</th><td>$3.657.265</td><td>$1.891.290</td><td>−48%</td></tr>
+                <tr><th scope="row">Ventas web</th><td>41</td><td>38</td><td>−7%</td></tr>
+                <tr class="clave"><th scope="row">Costo por venta</th><td>$89.202</td><td>$49.771</td><td class="mejora">−44%</td></tr>
+              </tbody>
+            </table>
+            <p class="fuente">Fuente: Meta Ads, totales de la cuenta.</p>
+            <p class="captura-img"><a href="/assets/casos/panel-hotel.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-hotel.jpg" width="984" height="578" loading="lazy" alt="Captura del panel de Meta Ads con los totales de la cuenta en septiembre y octubre de 2026: monto gastado, compras y costo por compra."></a></p>
+          </details>
+        </article>
+
+        <article class="tarjeta caso" id="caso-autos">
+          <div class="caso-cabeza">
+            <p class="chip">Alquiler de autos · Meta Ads + Google Ads</p>
+            <p class="periodo">Septiembre → octubre 2026</p>
+          </div>
+          <p class="cifra">−15%</p>
+          <p class="lectura">de costo por contacto, con 18% más contactos y la misma inversión.</p>
+          <details class="detalle-caso">
+            <summary>Ver los números y la captura</summary>
+            <table>
+              <caption class="oculto">Alquiler de autos, Meta Ads y Google Ads: septiembre contra octubre de 2026</caption>
+              <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Inversión total</th><td>$993.270</td><td>$994.881</td><td>0%</td></tr>
+                <tr><th scope="row">Contactos totales</th><td>445</td><td>527</td><td class="mejora">+18%</td></tr>
+                <tr class="clave"><th scope="row">Costo por contacto</th><td>$2.232</td><td>$1.888</td><td class="mejora">−15%</td></tr>
+                <tr><th scope="row">Contactos desde Google</th><td>40</td><td>84</td><td class="mejora">+110%</td></tr>
+                <tr><th scope="row">Costo por contacto en Google</th><td>$12.290</td><td>$5.948</td><td class="mejora">−52%</td></tr>
+              </tbody>
+            </table>
+            <p class="fuente">Fuente: Meta Ads y Google Ads. En Meta, el contacto es la conversación iniciada. En Google, el clic al botón de WhatsApp.</p>
+            <p class="captura-img"><a href="/assets/casos/panel-autos.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-autos.jpg" width="916" height="1114" loading="lazy" alt="Capturas de Meta Ads y Google Ads en septiembre y octubre de 2026: monto gastado, conversaciones, conversiones y costo por conversión."></a></p>
+          </details>
+        </article>
+
+      </div>
+      <div class="cierre-casos">
+        <p>¿Querés números así en tu negocio?</p>
+        <a class="boton" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20vi%20los%20casos%20en%20la%20web." data-ubicacion="casos" rel="noopener" target="_blank">Escribime.</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="valoraciones" class="seccion">
+    <div class="contenedor">
+      <p class="ojal">02 · Clientes</p>
+      <h2>Valoraciones</h2>
+      <p class="estrellas" role="img" aria-label="Cinco estrellas">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
+      </p>
+      <p class="intro"><strong>5,0 en Google · 10 reseñas.</strong> <a class="enlace" href="https://www.google.com/maps/search/?api=1&amp;query=Patagonia%20Ads%20Caleta%20Olivia&amp;query_place_id=ChIJX-zK_RDf5b0Rb9LI9p981w0" rel="noopener" target="_blank">Ver todas en Google</a></p>
       <div class="grilla grilla-3">
-        <article class="tarjeta">
-          <p class="num">01</p>
-          <h3>Gestión de Meta Ads</h3>
-          <p>Ventas, mensajes a WhatsApp y remarketing en Facebook e Instagram, armados sobre tu margen.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="num">02</p>
-          <h3>Gestión de Google Ads</h3>
-          <p>Búsqueda, Performance Max y campañas de marca, medidas contra las ventas reales de tu tienda.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="num">03</p>
-          <h3>Auditoría de cuenta</h3>
-          <p>Reviso tus campañas y tu medición y te muestro por dónde se escapa la plata.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="num">04</p>
-          <h3>Consultoría estratégica</h3>
-          <p>Una segunda mirada para equipos que ya pautan y tienen que decidir dónde poner el próximo peso.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="num">05</p>
-          <h3>Clases 1 a 1 en vivo</h3>
-          <p>Meta Ads y Google Ads, nivel inicial e intermedio, al ritmo de cada alumno.</p>
-        </article>
+        <figure class="tarjeta resena">
+          <blockquote><p>“Impecable todo y Alan es lo más. Desde que trabajamos con él escalamos las ventas y nos ordenó mucho además. Gracias!!!”</p></blockquote>
+          <figcaption><strong>Ana Algranati</strong> · Elemental BA</figcaption>
+        </figure>
+        <figure class="tarjeta resena">
+          <blockquote><p>“Su gestión técnica profesionalizó nuestra pauta logrando leads calificados y una medición de datos exacta para el hotel.”</p></blockquote>
+          <figcaption><strong>Carolina Zambelli</strong> · Sofitel La Reserva Cardales</figcaption>
+        </figure>
+        <figure class="tarjeta resena">
+          <blockquote><p>“Estamos super conformes con el servicio. Nos sirve mucho para aumentar las ventas. Y automatizar los procesos. Gracias totales por la atención y la rapidez con la que nos contestas todas las consultas.!!!”</p></blockquote>
+          <figcaption><strong>Laura Mozo</strong> · Alba Nueva</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <section id="metodo" class="seccion">
     <div class="contenedor">
-      <p class="ojal">02 · Método</p>
+      <p class="ojal">03 · Método</p>
       <h2>Cómo trabajo</h2>
       <div class="grilla grilla-3">
         <article class="tarjeta">
           <p class="num">01</p>
-          <h3>Trato directo</h3>
-          <p>Sin agencia ni juniors. Yo armo, miro y ajusto tu cuenta.</p>
+          <h3>Una prueba a la vez</h3>
+          <p>Cada cambio prueba una sola cosa, con un número que dice si funcionó. Así se sabe qué vende y qué no.</p>
         </article>
         <article class="tarjeta">
           <p class="num">02</p>
@@ -192,167 +338,45 @@
     </div>
   </section>
 
-  <section id="casos" class="seccion">
+  <section id="servicios" class="seccion">
     <div class="contenedor">
-      <p class="ojal">03 · Casos</p>
-      <h2>Números reales</h2>
-      <p class="intro">Cinco cuentas reales. En las cinco vuelve más por cada peso invertido. En cuatro, con la misma plata o menos.</p>
-      <p class="intro">Si el negocio vende online, el número grande es el retorno: cuánto vuelve por cada peso. Si busca consultas, el costo por contacto. Cada caso compara dos períodos con la misma vara.</p>
+      <p class="ojal">04 · Servicios</p>
+      <h2>Servicios</h2>
+      <p class="intro">Todos parten del mismo número: cuánto te deja cada venta. Elegí el que te interesa y me escribís directo.</p>
       <div class="grilla grilla-2">
-
-        <article class="tarjeta caso">
-          <div class="caso-cabeza">
-            <p class="chip">Alquiler de autos · Meta Ads + Google Ads</p>
-            <p class="periodo">Septiembre → octubre 2026</p>
-          </div>
-          <p class="cifra">−15%</p>
-          <p class="lectura">de costo por contacto, con 18% más contactos y la misma inversión.</p>
-          <table>
-            <caption class="oculto">Alquiler de autos, Meta Ads y Google Ads: septiembre contra octubre de 2026</caption>
-            <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Inversión total</th><td>$993.270</td><td>$994.881</td><td>0%</td></tr>
-              <tr><th scope="row">Contactos totales</th><td>445</td><td>527</td><td class="mejora">+18%</td></tr>
-              <tr class="clave"><th scope="row">Costo por contacto</th><td>$2.232</td><td>$1.888</td><td class="mejora">−15%</td></tr>
-              <tr><th scope="row">Contactos desde Google</th><td>40</td><td>84</td><td class="mejora">+110%</td></tr>
-              <tr><th scope="row">Costo por contacto en Google</th><td>$12.290</td><td>$5.948</td><td class="mejora">−52%</td></tr>
-            </tbody>
-          </table>
-          <p class="fuente">Fuente: Meta Ads y Google Ads. En Meta, el contacto es la conversación iniciada. En Google, el clic al botón de WhatsApp.</p>
-          <details class="captura">
-            <summary>Ver captura del panel</summary>
-            <a href="/assets/casos/panel-autos.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-autos.jpg" width="916" height="1114" loading="lazy" alt="Capturas de Meta Ads y Google Ads en septiembre y octubre de 2026: monto gastado, conversaciones, conversiones y costo por conversión."></a>
-          </details>
-        </article>
-
-        <article class="tarjeta caso">
-          <div class="caso-cabeza">
-            <p class="chip">Moda femenina · Meta Ads</p>
-            <p class="periodo">Septiembre → octubre 2026</p>
-          </div>
-          <p class="cifra">8,1×</p>
-          <p class="lectura">de retorno por peso invertido (antes 6,6×), con la misma inversión.</p>
-          <table>
-            <caption class="oculto">Moda femenina, Meta Ads: septiembre contra octubre de 2026</caption>
-            <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Inversión</th><td>$803.181</td><td>$796.252</td><td>−1%</td></tr>
-              <tr><th scope="row">Compras</th><td>24</td><td>32</td><td class="mejora">+33%</td></tr>
-              <tr><th scope="row">Costo por compra</th><td>$33.466</td><td>$24.883</td><td class="mejora">−26%</td></tr>
-              <tr class="clave"><th scope="row">Retorno</th><td>6,6×</td><td>8,1×</td><td class="mejora">+24%</td></tr>
-            </tbody>
-          </table>
-          <p class="fuente">Fuente: Meta Ads, atribución por defecto de la cuenta.</p>
-          <details class="captura">
-            <summary>Ver captura del panel</summary>
-            <a href="/assets/casos/panel-moda.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-moda.jpg" width="984" height="610" loading="lazy" alt="Captura del panel de Meta Ads con los totales de la cuenta en septiembre y octubre de 2026: monto gastado, costo por compra, compras y valor de conversión."></a>
-          </details>
-        </article>
-
-        <article class="tarjeta caso">
-          <div class="caso-cabeza">
-            <p class="chip">Hotel resort · Meta Ads</p>
-            <p class="periodo">Septiembre → octubre 2026</p>
-          </div>
-          <p class="cifra">−44%</p>
-          <p class="lectura">de costo por venta web, con casi la mitad de la inversión.</p>
-          <table>
-            <caption class="oculto">Hotel resort, Meta Ads: septiembre contra octubre de 2026</caption>
-            <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Inversión</th><td>$3.657.265</td><td>$1.891.290</td><td>−48%</td></tr>
-              <tr><th scope="row">Ventas web</th><td>41</td><td>38</td><td>−7%</td></tr>
-              <tr class="clave"><th scope="row">Costo por venta</th><td>$89.202</td><td>$49.771</td><td class="mejora">−44%</td></tr>
-            </tbody>
-          </table>
-          <p class="fuente">Fuente: Meta Ads, totales de la cuenta.</p>
-          <details class="captura">
-            <summary>Ver captura del panel</summary>
-            <a href="/assets/casos/panel-hotel.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-hotel.jpg" width="984" height="578" loading="lazy" alt="Captura del panel de Meta Ads con los totales de la cuenta en septiembre y octubre de 2026: monto gastado, compras y costo por compra."></a>
-          </details>
-        </article>
-
-        <article class="tarjeta caso">
-          <div class="caso-cabeza">
-            <p class="chip">Joyería · Google Ads</p>
-            <p class="periodo">Septiembre → octubre 2026</p>
-          </div>
-          <p class="cifra">12,1×</p>
-          <p class="lectura">de retorno por peso invertido (antes 3,4×), con 7% más de inversión.</p>
-          <table>
-            <caption class="oculto">Joyería, Google Ads: septiembre contra octubre de 2026</caption>
-            <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
-            <tbody>
-              <tr><th scope="row">Inversión</th><td>$696.160</td><td>$746.999</td><td>+7%</td></tr>
-              <tr><th scope="row">Compras</th><td>8</td><td>9</td><td class="mejora">+13%</td></tr>
-              <tr><th scope="row">Costo por compra</th><td>$87.020</td><td>$83.000</td><td class="mejora">−5%</td></tr>
-              <tr><th scope="row">Ingresos</th><td>$2.350.077</td><td>$9.072.508</td><td class="mejora">+286%</td></tr>
-              <tr><th scope="row">Ticket promedio</th><td>$293.760</td><td>$1.008.056</td><td class="mejora">+243%</td></tr>
-              <tr class="clave"><th scope="row">Retorno</th><td>3,4×</td><td>12,1×</td><td class="mejora">+260%</td></tr>
-            </tbody>
-          </table>
-          <p class="fuente">Fuente: Google Analytics 4, canales Paid Search y Cross-network (Google Ads). La inversión sale de Google Ads.</p>
-          <details class="captura">
-            <summary>Ver captura del panel</summary>
-            <a href="/assets/casos/panel-joya.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-joya.jpg" width="1282" height="818" loading="lazy" alt="Captura de Google Analytics 4 con compras e ingresos del tráfico de Google Ads en septiembre y octubre de 2026."></a>
-          </details>
-        </article>
-
-
-        <article class="tarjeta caso caso-ancho">
-          <div class="caso-cabeza">
-            <p class="chip">Mueblería · Meta Ads + Google Ads</p>
-            <p class="periodo">Julio → octubre 2026</p>
-          </div>
-          <div class="caso-cuerpo">
-            <div>
-              <p class="cifra">5,4×</p>
-              <p class="lectura">de retorno sobre Meta (antes 3,1×), con 22% menos inversión en Meta y 34% más ventas por Instagram.</p>
-            </div>
-            <table>
-              <caption class="oculto">Mueblería, Meta Ads y Google Ads: julio contra octubre de 2026</caption>
-              <thead><tr><th scope="col">Métrica</th><th scope="col">Antes</th><th scope="col">Después</th><th scope="col">Cambio</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Inversión en Meta Ads</th><td>$7.674.972</td><td>$5.954.056</td><td>−22%</td></tr>
-                <tr><th scope="row">Inversión en Google Ads</th><td>$837 mil</td><td>$1,82 M</td><td>+117%</td></tr>
-                <tr><th scope="row">Ventas por Instagram</th><td>$23.819.728</td><td>$31.890.475</td><td class="mejora">+34%</td></tr>
-                <tr class="clave"><th scope="row">Retorno sobre Meta</th><td>3,1×</td><td>5,4×</td><td class="mejora">+73%</td></tr>
-                <tr><th scope="row">Peso en las ventas del negocio</th><td>22%</td><td>41%</td><td class="mejora">+19 pts</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="fuente">Fuente: inversión, paneles de Meta Ads y Google Ads. Ventas, sistema de ventas del negocio con origen Instagram.</p>
-          <details class="captura">
-            <summary>Ver captura del panel</summary>
-            <a href="/assets/casos/panel-mueble.jpg" target="_blank" rel="noopener"><img src="/assets/casos/panel-mueble.jpg" width="1332" height="1078" loading="lazy" alt="Capturas de Meta Ads y Google Ads en julio y octubre de 2026: monto gastado, conversaciones, conversiones y costo."></a>
-          </details>
-        </article>
-
+        <a class="tarjeta tarjeta-link" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20me%20interesa%20la%20gesti%C3%B3n%20de%20Meta%20Ads." data-ubicacion="servicio-meta" rel="noopener" target="_blank">
+          <p class="num">01</p>
+          <h3>Gestión de Meta Ads</h3>
+          <p>Ventas, mensajes a WhatsApp y anuncios para quien ya te visitó, en Facebook e Instagram, armados sobre tu margen.</p>
+          <p class="consultar">Consultar por WhatsApp</p>
+        </a>
+        <a class="tarjeta tarjeta-link" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20me%20interesa%20la%20gesti%C3%B3n%20de%20Google%20Ads." data-ubicacion="servicio-google" rel="noopener" target="_blank">
+          <p class="num">02</p>
+          <h3>Gestión de Google Ads</h3>
+          <p>Búsqueda, Performance Max y campañas de marca, medidas contra las ventas reales de tu tienda.</p>
+          <p class="consultar">Consultar por WhatsApp</p>
+        </a>
       </div>
-    </div>
-  </section>
-
-  <section id="valoraciones" class="seccion">
-    <div class="contenedor">
-      <p class="ojal">04 · Clientes</p>
-      <h2>Valoraciones</h2>
-      <p class="estrellas" role="img" aria-label="Cinco estrellas">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>
-      </p>
-      <p class="intro">Reseñas de clientes en mi perfil de Google.</p>
-      <div class="grilla grilla-3">
-        <figure class="tarjeta resena">
-          <blockquote><p>“Impecable todo y Alan es lo más. Desde que trabajamos con él escalamos las ventas y nos ordenó mucho además. Gracias!!!”</p></blockquote>
-          <figcaption><strong>Ana Algranati</strong> · Elemental BA</figcaption>
-        </figure>
-        <figure class="tarjeta resena">
-          <blockquote><p>“Su gestión técnica profesionalizó nuestra pauta logrando leads calificados y una medición de datos exacta para el hotel.”</p></blockquote>
-          <figcaption><strong>Carolina Zambelli</strong> · Sofitel La Reserva Cardales</figcaption>
-        </figure>
-        <figure class="tarjeta resena">
-          <blockquote><p>“Estamos super conformes con el servicio. Nos sirve mucho para aumentar las ventas. Y automatizar los procesos. Gracias totales por la atención y la rapidez con la que nos contestas todas las consultas.!!!”</p></blockquote>
-          <figcaption><strong>Laura Mozo</strong> · Alba Nueva</figcaption>
-        </figure>
+      <p class="tambien">También</p>
+      <div class="grilla grilla-3 servicios-secundarios">
+        <a class="tarjeta tarjeta-link tarjeta-chica" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20me%20interesa%20una%20auditor%C3%ADa%20de%20cuenta." data-ubicacion="servicio-auditoria" rel="noopener" target="_blank">
+          <p class="num">03</p>
+          <h3>Auditoría de cuenta</h3>
+          <p>Reviso tus campañas y tu medición y te muestro por dónde se escapa la plata.</p>
+          <p class="consultar">Consultar por WhatsApp</p>
+        </a>
+        <a class="tarjeta tarjeta-link tarjeta-chica" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20me%20interesa%20una%20consultor%C3%ADa." data-ubicacion="servicio-consultoria" rel="noopener" target="_blank">
+          <p class="num">04</p>
+          <h3>Consultoría estratégica</h3>
+          <p>Una segunda mirada para equipos que ya pautan y tienen que decidir dónde poner el próximo peso.</p>
+          <p class="consultar">Consultar por WhatsApp</p>
+        </a>
+        <a class="tarjeta tarjeta-link tarjeta-chica" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20me%20interesan%20las%20clases%201%20a%201." data-ubicacion="servicio-clases" rel="noopener" target="_blank">
+          <p class="num">05</p>
+          <h3>Clases 1 a 1 en vivo</h3>
+          <p>Meta Ads y Google Ads, nivel inicial e intermedio, al ritmo de cada alumno.</p>
+          <p class="consultar">Consultar por WhatsApp</p>
+        </a>
       </div>
     </div>
   </section>
@@ -376,7 +400,7 @@
         </details>
         <details>
           <summary><span class="num">04</span> ¿Necesito página web?</summary>
-          <p>No siempre. Para recibir consultas por WhatsApp alcanza con Instagram y WhatsApp Business. Para vender online conviene una tienda con la medición bien configurada.</p>
+          <p>No siempre. Para recibir consultas por WhatsApp alcanza con Instagram y WhatsApp Business. Para vender por internet conviene una tienda con la medición bien configurada.</p>
         </details>
         <details>
           <summary><span class="num">05</span> ¿Cuándo se ven resultados?</summary>

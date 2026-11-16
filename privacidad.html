@@ -19,22 +19,30 @@
 <link rel="preload" href="/assets/fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/estilos.css">
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW1WHZGL38"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-YW1WHZGL38');
-</script>
-<script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  !function(f,n){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[]}(window);
   fbq('set', 'autoConfig', false, '29033560016305530');
   fbq('init', '29033560016305530');
   fbq('track', 'PageView');
+  // GA4 y Meta se cargan al primer gesto de la persona o 3 s después de cargada la página.
+  // Hasta entonces los eventos quedan en cola y se envían igual.
+  (function () {
+    var hecho = false;
+    function cargar() {
+      if (hecho) return; hecho = true;
+      ['https://www.googletagmanager.com/gtag/js?id=G-YW1WHZGL38', 'https://connect.facebook.net/en_US/fbevents.js'].forEach(function (src) {
+        var e = document.createElement('script'); e.async = true; e.src = src; document.head.appendChild(e);
+      });
+    }
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) { addEventListener(ev, cargar, { once: true, passive: true }); });
+    addEventListener('load', function () { setTimeout(cargar, 3000); });
+  })();
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=29033560016305530&amp;ev=PageView&amp;noscript=1"></noscript>
 </head>
