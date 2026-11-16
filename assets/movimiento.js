@@ -21,14 +21,15 @@
   piezas.forEach(function (p) { vista.observe(p); });
 
   // 2. Cifras que suben desde cero hasta el número real (el texto final ya está en el HTML)
-  function contar(el) {
+  function contar(caja) {
+    var el = caja.querySelector('.cn') || caja;
     var final = el.textContent.trim();
     var m = final.match(/^([^\d]*)([\d.]+(?:,\d+)?)(.*)$/);
     if (!m) return;
     var pre = m[1], suf = m[3], txt = m[2];
     var dec = txt.indexOf(',') > -1 ? txt.split(',')[1].length : 0;
     var meta = parseFloat(txt.replace(/\./g, '').replace(',', '.'));
-    el.setAttribute('aria-label', final);
+    caja.setAttribute('aria-label', caja.textContent.trim());
     var t0 = null, dur = 1100;
     function paso(ts) {
       if (t0 === null) t0 = ts;
