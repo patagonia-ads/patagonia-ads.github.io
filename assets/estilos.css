@@ -261,3 +261,11 @@ html:has(.ventana-caso[open]){overflow:hidden}
 }
 @keyframes ventana-entra{from{opacity:0;transform:perspective(1000px) rotateX(14deg) translateY(40px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes fondo-entra{from{opacity:0}to{opacity:1}}
+.ventana-nav{position:sticky;bottom:-40px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:32px -44px -40px;padding:16px 44px 20px;background:var(--caja);border-top:1px solid var(--borde)}
+.ventana-flecha{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;background:none;border:1px solid var(--borde);color:var(--blanco);font:inherit;font-size:15px;font-weight:700;cursor:pointer;transition:border-color .15s ease,color .15s ease}
+.ventana-flecha:hover{border-color:var(--lima);color:var(--lima)}
+.ventana-pos{color:var(--gris-2);font-size:14px;font-variant-numeric:tabular-nums}
+@media (max-width:620px){.ventana-flecha-txt{display:none}.ventana-flecha{padding:0 18px;font-size:20px}}
+@media (prefers-reduced-motion:no-preference){.ventana-cuerpo.cambia{animation:caso-cambia .4s cubic-bezier(.2,.8,.2,1)}}
+@keyframes caso-cambia{from{opacity:0;transform:perspective(1000px) rotateY(-8deg) translateX(24px)}to{opacity:1;transform:none}}
+@media (max-width:620px){.ventana-nav{bottom:-28px;margin:28px -20px -28px;padding:14px 20px 18px}}
