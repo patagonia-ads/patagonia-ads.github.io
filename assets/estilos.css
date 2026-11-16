@@ -144,3 +144,4 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 .captura img{display:block;width:100%;height:auto;margin-top:14px;border:1px solid var(--borde)}
 .captura summary::after{content:"+";position:static;border:0;width:auto;height:auto;transform:none;margin:0;font-size:18px;line-height:1}
 .captura[open] summary::after{content:"−";transform:none;margin:0}
+.caso-ancho .captura img{max-width:760px}
