@@ -71,7 +71,8 @@ h3{font-size:24px;font-weight:800;line-height:1.2;margin-top:26px}
 .caso-cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
 .chip{background:var(--lima);color:var(--negro);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px}
 .periodo{color:var(--gris);font-size:14px;font-weight:600}
-.cifra{font-family:"Staatliches",sans-serif;font-size:clamp(72px,9vw,104px);line-height:.9;margin-top:26px;color:var(--blanco);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima)}
+.cifra{font-family:"Raleway",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(60px,7.4vw,88px);line-height:1;margin-top:26px}
+.cifra .u,.cifra-m .u{color:var(--lima);font-size:.58em;margin-left:.06em;letter-spacing:0}
 .lectura{font-weight:700;font-size:19px;line-height:1.35;margin-top:14px}
 table{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px;font-variant-numeric:tabular-nums lining-nums}
 th,td{padding:10px 0;border-bottom:1px solid var(--borde);text-align:right}
@@ -199,8 +200,6 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 html.mov .tarjeta,html.mov .preguntas details,html.mov .pasos li{opacity:0;transform:perspective(1000px) rotateX(16deg) translateY(48px);transform-origin:50% 100%;transition:opacity .7s ease,transform .9s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;transition-delay:calc(var(--orden,0) * 110ms)}
 html.mov .tarjeta.visto,html.mov .preguntas details.visto,html.mov .pasos li.visto{opacity:1;transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(0)}
 html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s ease;transition-delay:0s;box-shadow:8px 8px 0 var(--lima)}
-html.mov .cifra{text-shadow:0 0 0 var(--lima);transition:text-shadow .6s cubic-bezier(.2,.8,.2,1) .5s}
-html.mov .visto .cifra{text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima),8px 8px 0 var(--lima)}
 .portada-grilla .resumen-casos{margin-top:22px;font-size:clamp(16px,1.6vw,19px)}
 .portada-grilla h1{max-width:none;font-size:clamp(56px,6.6vw,96px)}
 .portada:has(.portada-grilla){padding-top:clamp(64px,8vw,110px)}
@@ -211,8 +210,8 @@ html.mov .visto .cifra{text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6
 .marcador-lista li:first-child{grid-column:1/-1}
 .marcador-lista a{display:block;height:100%;background:var(--caja);border:1px solid var(--borde);padding:18px 18px 16px;text-decoration:none;color:var(--blanco);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .marcador-lista a:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--lima);border-color:var(--lima)}
-.cifra-m{display:block;font-family:"Staatliches",sans-serif;font-size:clamp(46px,4.6vw,64px);line-height:.9;color:var(--blanco);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima)}
-.marcador-lista li:first-child .cifra-m{font-size:clamp(72px,7.4vw,108px);text-shadow:2px 2px 0 var(--lima),4px 4px 0 var(--lima),6px 6px 0 var(--lima)}
+.cifra-m{display:block;font-family:"Raleway",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(38px,3.8vw,52px);line-height:1}
+.marcador-lista li:first-child .cifra-m{font-size:clamp(60px,6vw,86px)}
 .dato{display:block;margin-top:10px;color:var(--gris);font-size:14px;font-weight:600;line-height:1.35}
 .marcador-pie{color:var(--gris-2);font-size:13px;margin-top:12px}
 @media (max-width:860px){.marcador{margin-top:8px}}
