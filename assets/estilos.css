@@ -179,3 +179,14 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 .contacto .formulario-ok-titulo{font-family:"Staatliches",sans-serif;font-size:40px;line-height:1;margin-top:12px;font-weight:400}
 .trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:860px){.contacto-grilla{grid-template-columns:1fr}.formulario{padding:26px 20px}}
+
+/* Resumen de casos en portada, pasos de contacto y cupo */
+.resumen-casos{margin-top:28px;font-weight:700;font-size:16px}
+.resumen-casos a{color:var(--blanco);text-decoration:none;border-bottom:2px solid var(--lima);padding-bottom:2px}
+.resumen-casos a:hover{color:var(--lima)}
+.pasos{list-style:none;counter-reset:paso;margin:28px 0 0;padding:0;border-top:2px solid var(--negro)}
+.pasos li{counter-increment:paso;position:relative;padding:14px 0 14px 46px;border-bottom:2px solid var(--negro);font-weight:500;line-height:1.45}
+.pasos li::before{content:counter(paso,decimal-leading-zero);position:absolute;left:0;top:13px;font-family:"Staatliches",sans-serif;font-size:24px;line-height:1}
+.pasos strong{font-weight:800}
+.contacto p.cupo{font-weight:800}
+.contacto p.claves{font-family:"Staatliches",sans-serif;font-size:clamp(26px,3vw,34px);line-height:1.1;margin-top:28px;font-weight:400}
