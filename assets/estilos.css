@@ -158,3 +158,24 @@ details p{color:var(--gris);max-width:70ch;padding:0 0 26px 40px}
 .pie p+p{margin-top:6px}
 .pie a{color:var(--gris);text-underline-offset:3px}
 .pie a:hover{color:var(--lima)}
+.contacto-grilla{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 64px;align-items:start}
+.formulario{background:var(--negro);color:var(--blanco);padding:32px 30px;border:2px solid var(--negro)}
+.formulario .campo+.campo{margin-top:18px}
+.formulario label{display:block;font-size:14px;font-weight:700;letter-spacing:.02em;margin-bottom:8px}
+.formulario label span{color:var(--gris-2);font-weight:500}
+.formulario input,.formulario select,.formulario textarea{width:100%;background:var(--caja);color:var(--blanco);border:1px solid var(--borde);padding:13px 14px;font:inherit;font-size:16px;border-radius:0;appearance:none}
+.formulario select{background-image:linear-gradient(45deg,transparent 50%,var(--lima) 50%),linear-gradient(135deg,var(--lima) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+.formulario textarea{resize:vertical;min-height:110px}
+.formulario ::placeholder{color:var(--gris-2)}
+.formulario input:focus,.formulario select:focus,.formulario textarea:focus{outline:2px solid var(--lima);outline-offset:0;border-color:var(--lima)}
+.contacto .formulario :focus-visible{outline-color:var(--lima)}
+.formulario .boton{margin-top:24px;width:100%;cursor:pointer;font-family:inherit}
+.formulario .boton:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+.contacto .formulario p{margin-top:14px;font-weight:500}
+.formulario-legal{font-size:13px;color:var(--gris-2)}
+.formulario-legal a{color:var(--gris)}
+.formulario-error{color:#FF8A8A;font-size:14px}
+.formulario-ok .ojal{color:var(--lima)!important}
+.contacto .formulario-ok-titulo{font-family:"Staatliches",sans-serif;font-size:40px;line-height:1;margin-top:12px;font-weight:400}
+.trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:860px){.contacto-grilla{grid-template-columns:1fr}.formulario{padding:26px 20px}}

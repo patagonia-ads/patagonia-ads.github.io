@@ -369,13 +369,58 @@
   </section>
 
   <section id="contacto" class="contacto">
-    <div class="contenedor">
-      <p class="ojal">06 · Contacto</p>
-      <h2>Contame qué vendés y cuánto invertís hoy</h2>
-      <p>Patagonia Ads. Caleta Olivia, Santa Cruz. Trabajo a distancia en todo el país.</p>
-      <div class="acciones">
-        <a class="boton boton-negro" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20te%20escribo%20desde%20la%20web." data-ubicacion="contacto" rel="noopener" target="_blank">Escribime.</a>
-        <a class="enlace" href="https://www.instagram.com/patagonia.ads/" rel="noopener" target="_blank">Instagram: @patagonia.ads</a>
+    <div class="contenedor contacto-grilla">
+      <div>
+        <p class="ojal">06 · Contacto</p>
+        <h2>Contame qué vendés y cuánto invertís hoy</h2>
+        <p>Completá el formulario y te respondo por WhatsApp. Si preferís, escribime directo.</p>
+        <p>Patagonia Ads. Caleta Olivia, Santa Cruz. Trabajo a distancia en todo el país.</p>
+        <div class="acciones">
+          <a class="boton boton-negro" href="https://wa.me/5491169469751?text=Hola%20Alan%2C%20te%20escribo%20desde%20la%20web." data-ubicacion="contacto" rel="noopener" target="_blank">Escribime.</a>
+          <a class="enlace" href="https://www.instagram.com/patagonia.ads/" rel="noopener" target="_blank">Instagram: @patagonia.ads</a>
+        </div>
+      </div>
+
+      <form class="formulario" id="formulario" novalidate>
+        <div class="campo">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="entry.392232540" type="text" autocomplete="name" required maxlength="120">
+        </div>
+        <div class="campo">
+          <label for="f-negocio">Negocio <span>(opcional)</span></label>
+          <input id="f-negocio" name="entry.1061890459" type="text" autocomplete="organization" maxlength="160">
+        </div>
+        <div class="campo">
+          <label for="f-whatsapp">WhatsApp</label>
+          <input id="f-whatsapp" name="entry.1708478169" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Ej.: 297 412 3456" maxlength="30">
+        </div>
+        <div class="campo">
+          <label for="f-inversion">Inversión mensual en publicidad <span>(opcional)</span></label>
+          <select id="f-inversion" name="entry.108497468">
+            <option value="">Elegí una opción</option>
+            <option>Todavía no invierto</option>
+            <option>Menos de $300.000 por mes</option>
+            <option>De $300.000 a $1.000.000 por mes</option>
+            <option>Más de $1.000.000 por mes</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="f-mensaje">Mensaje <span>(opcional)</span></label>
+          <textarea id="f-mensaje" name="entry.2004450578" rows="4" maxlength="2000" placeholder="Qué vendés, dónde y qué querés mejorar."></textarea>
+        </div>
+        <input type="hidden" name="entry.893270480" id="f-origen">
+        <div class="trampa" aria-hidden="true">
+          <label for="f-web">No completar</label>
+          <input id="f-web" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="formulario-error" id="f-error" role="alert" hidden></p>
+        <button class="boton" type="submit">Enviar consulta</button>
+        <p class="formulario-legal">Al enviar aceptás la <a href="/privacidad.html">política de privacidad</a>.</p>
+      </form>
+      <div class="formulario formulario-ok" id="formulario-ok" hidden tabindex="-1">
+        <p class="ojal">Consulta enviada</p>
+        <p class="formulario-ok-titulo">Gracias. Ya la tengo.</p>
+        <p>Te escribo por WhatsApp al número que dejaste. Si es urgente, escribime directo.</p>
       </div>
     </div>
   </section>
@@ -397,6 +442,44 @@
       }
     });
   });
+  var form = document.getElementById('formulario');
+  if (form) {
+    var p = new URLSearchParams(location.search);
+    var origen = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid']
+      .filter(function (k) { return p.get(k); })
+      .map(function (k) { return k + '=' + p.get(k); });
+    origen.unshift('pagina=' + location.pathname);
+    if (document.referrer) origen.push('referente=' + document.referrer);
+    document.getElementById('f-origen').value = origen.join(' | ').slice(0, 900);
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var error = document.getElementById('f-error');
+      error.hidden = true;
+      if (document.getElementById('f-web').value) return;
+      var nombre = document.getElementById('f-nombre');
+      var wsp = document.getElementById('f-whatsapp');
+      var digitos = wsp.value.replace(/\D/g, '');
+      if (!nombre.value.trim()) { error.textContent = 'Falta tu nombre.'; error.hidden = false; nombre.focus(); return; }
+      if (digitos.length < 8) { error.textContent = 'Revisá el WhatsApp: necesito el número con código de área.'; error.hidden = false; wsp.focus(); return; }
+      var boton = form.querySelector('button');
+      boton.disabled = true; boton.textContent = 'Enviando...';
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdNbZ4auIx9zIw7pXJqKGJHZ16G0OZYx3VopOnl3CG33zWUpw/formResponse', {
+        method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(form))
+      }).then(function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { metodo: 'formulario', inversion: document.getElementById('f-inversion').value || 'sin dato' });
+        }
+        form.hidden = true;
+        var ok = document.getElementById('formulario-ok');
+        ok.hidden = false; ok.focus();
+      }).catch(function () {
+        boton.disabled = false; boton.textContent = 'Enviar consulta';
+        error.textContent = 'No se pudo enviar. Probá de nuevo o escribime por WhatsApp.';
+        error.hidden = false;
+      });
+    });
+  }
 </script>
 </body>
 </html>
