@@ -1,0 +1,7 @@
+Carpeta de paso para publicar en Instagram (@patagonia.ads) por la API, vía Windsor.
+
+- Acá solo entran placas y videos ya aprobados por Alan, que igual se van a publicar.
+- Cada pieza va en ig/<nombre-de-la-pieza>/ (JPEG 1080x1350, sRGB, menos de 8 MB; video MP4 9:16).
+- Se borra apenas Instagram confirma la publicación.
+- Nunca datos de clientes sin autorización, planillas, montos ni accesos: el repo es público y Git guarda el historial.
+- robots.txt excluye esta carpeta de los buscadores.
