@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /ig/
 
-Sitemap: https://patagonia-ads.github.io/sitemap.xml
+Sitemap: https://patagonia-ads.com.ar/sitemap.xml
