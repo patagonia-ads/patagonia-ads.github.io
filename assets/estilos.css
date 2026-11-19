@@ -1,5 +1,5 @@
 @font-face{font-family:"Staatliches";src:url(/assets/fonts/staatliches.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Raleway";src:url(/assets/fonts/raleway.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Barlow Semi Condensed";src:url(/assets/fonts/barlow-sc-400.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:"Barlow Semi Condensed";src:url(/assets/fonts/barlow-sc-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}@font-face{font-family:"Barlow Semi Condensed";src:url(/assets/fonts/barlow-sc-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}@font-face{font-family:"Barlow Semi Condensed";src:url(/assets/fonts/barlow-sc-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}@font-face{font-family:"Barlow Semi Condensed";src:url(/assets/fonts/barlow-sc-800.woff2) format("woff2");font-weight:800;font-style:normal;font-display:swap}
 
 :root{
   --negro:#0A0A0A;
@@ -15,7 +15,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:var(--negro);color:var(--blanco);font-family:"Raleway",system-ui,sans-serif;font-size:17px;line-height:1.6;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
+body{background:var(--negro);color:var(--blanco);font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-size:18px;line-height:1.6;font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img,svg{display:block}
 
@@ -71,7 +71,7 @@ h3{font-size:24px;font-weight:800;line-height:1.2;margin-top:26px}
 .caso-cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
 .chip{background:var(--lima);color:var(--negro);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px}
 .periodo{color:var(--gris);font-size:14px;font-weight:600}
-.cifra{font-family:"Raleway",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(60px,7.4vw,88px);line-height:1;margin-top:26px}
+.cifra{font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(60px,7.4vw,88px);line-height:1;margin-top:26px}
 .cifra .u,.cifra-m .u{color:var(--lima);font-size:.58em;margin-left:.06em;letter-spacing:0}
 .lectura{font-weight:700;font-size:19px;line-height:1.35;margin-top:14px}
 table{width:100%;border-collapse:collapse;margin-top:24px;font-size:15px;font-variant-numeric:tabular-nums lining-nums}
@@ -210,7 +210,7 @@ html.mov .tarjeta.inclinada{transition:transform .12s linear,box-shadow .25s eas
 .marcador-lista li:first-child{grid-column:1/-1}
 .marcador-lista a{display:block;height:100%;background:var(--caja);border:1px solid var(--borde);padding:18px 18px 16px;text-decoration:none;color:var(--blanco);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .marcador-lista a:hover{transform:translate(-3px,-3px);box-shadow:3px 3px 0 var(--lima);border-color:var(--lima)}
-.cifra-m{display:block;font-family:"Raleway",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(38px,3.8vw,52px);line-height:1}
+.cifra-m{display:block;font-family:"Barlow Semi Condensed",system-ui,sans-serif;font-weight:800;font-variant-numeric:lining-nums tabular-nums;letter-spacing:-.03em;color:var(--blanco);font-size:clamp(38px,3.8vw,52px);line-height:1}
 .marcador-lista li:first-child .cifra-m{font-size:clamp(60px,6vw,86px)}
 .dato{display:block;margin-top:10px;color:var(--gris);font-size:14px;font-weight:600;line-height:1.35}
 .marcador-pie{color:var(--gris-2);font-size:13px;margin-top:12px}
@@ -296,7 +296,7 @@ html:has(.ventana-caso[open]){overflow:hidden}
 .pista .resena{scroll-snap-align:start;display:flex;flex-direction:column}
 .pista .resena blockquote{flex:1}
 .flechas{display:flex;gap:12px;justify-content:flex-end;margin-top:20px}
-.flechas button{width:48px;height:48px;background:var(--caja);border:1px solid var(--borde);color:var(--lima);font:800 20px/1 "Raleway",sans-serif;cursor:pointer}
+.flechas button{width:48px;height:48px;background:var(--caja);border:1px solid var(--borde);color:var(--lima);font:800 20px/1 "Barlow Semi Condensed",sans-serif;cursor:pointer}
 .flechas button:hover{border-color:var(--lima)}
 .flechas button:disabled{opacity:.35;cursor:default}
 @media (max-width:900px){.pista{grid-auto-columns:calc((100% - 24px)/2)}}
@@ -399,10 +399,67 @@ html:has(.ventana-caso[open]){overflow:hidden}
 
 /* auditoría 18/11 */
 .casos-grilla.pocos .caso-extra{display:none}
-.mas-casos{margin-top:24px;background:transparent;color:var(--lima);border:2px solid var(--lima);font:800 15px/1 "Raleway",system-ui,sans-serif;letter-spacing:.06em;padding:14px 22px;min-height:48px;cursor:pointer}
+.mas-casos{margin-top:24px;background:transparent;color:var(--lima);border:2px solid var(--lima);font:800 15px/1 "Barlow Semi Condensed",system-ui,sans-serif;letter-spacing:.06em;padding:14px 22px;min-height:48px;cursor:pointer}
 .mas-casos:hover{background:var(--lima);color:var(--negro)}
 .metodo-mini li{align-items:baseline}
 .metodo-mini li p{margin:0}
 @media (max-width:600px){.datos li{flex-direction:column;gap:4px}.datos li span:last-child{text-align:left}.datos li span:first-child{padding-top:0}}
 @media (max-width:600px){br.sin-movil{display:none}}
 h1 .resalte{white-space:nowrap}
+
+/* FAQ: las preguntas extra quedan en el HTML (buscadores y motores de IA las leen) y se muestran con el botón */
+.preguntas.pocas .pregunta-extra{display:none}
+.mas-preguntas{margin-top:24px;background:transparent;color:var(--lima);border:2px solid var(--lima);font:800 15px/1 "Barlow Semi Condensed",system-ui,sans-serif;letter-spacing:.06em;padding:14px 22px;min-height:48px;cursor:pointer}
+.mas-preguntas:hover{background:var(--lima);color:var(--negro)}
+
+/* Servicios: 2 cards principales con un solo objeto 3D derecho + 3 secundarios en línea */
+.serv-principales{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:40px}
+.serv-card{padding:34px 32px 150px;overflow:hidden;min-height:330px}
+.serv-card h3{color:var(--lima);font-size:clamp(24px,2.6vw,30px);margin:10px 0 12px}
+.serv-card p:not(.num){color:var(--gris);max-width:36ch}
+.obj{position:absolute;right:28px;bottom:30px}
+.obj-noti{display:flex;align-items:center;gap:14px;width:340px;background:#1C1C1B;border:1px solid #2A2A28;border-radius:18px;padding:16px 18px}
+.obj-noti .avatar{position:relative;flex:0 0 44px;height:44px;border-radius:50%;background:#2E2E2C}
+.obj-noti .punto{position:absolute;left:-6px;top:-6px;width:22px;height:22px;border-radius:50%;background:var(--lima);color:var(--negro);font:800 12px/22px "Barlow Semi Condensed",sans-serif;text-align:center}
+.obj-noti .txt{display:flex;flex-direction:column;line-height:1.3;flex:1}
+.obj-noti strong{color:var(--blanco);font-size:15px}.obj-noti em{color:var(--gris);font-style:normal;font-size:14px}
+.obj-noti .hora{color:var(--gris);font-size:13px;align-self:flex-start}
+.obj-busca{display:flex;align-items:center;gap:14px;width:360px;background:#F5F5F0;color:#0A0A0A;border-radius:999px;padding:16px 22px;font-weight:600;font-size:16px}
+.obj-busca .lupa{width:18px;height:18px;border:3px solid #0A0A0A;border-radius:50%;position:relative;flex:0 0 18px}
+.obj-busca .lupa::after{content:"";position:absolute;width:3px;height:9px;background:#0A0A0A;right:-5px;bottom:-8px;transform:rotate(-45deg)}
+.obj-busca .cursor{display:inline-block;width:2px;height:18px;background:#0A0A0A;margin-left:3px;vertical-align:-3px}
+.serv-otros{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin-top:28px;border-top:1px solid var(--borde)}
+.serv-otros li{padding:22px 0 0}
+.serv-otros h3{font-size:20px;margin:6px 0 6px}
+.serv-otros p:not(.num){color:var(--gris);font-size:16px}
+@media (max-width:760px){.serv-principales,.serv-otros{grid-template-columns:1fr}.serv-card{padding:28px 24px 140px;min-height:0}.serv-otros li{padding:18px 0;border-bottom:1px solid var(--borde)}.obj{right:-30px}}
+/* Contacto: fondo negro, caja blanca torcida con sombra lima (mismo sistema que las piezas de IG) */
+.contacto-negro{background:var(--negro);color:var(--blanco);border-top:6px solid var(--lima)}
+.contacto-negro .ojal,.contacto-negro h2{color:var(--lima)}
+.contacto-negro .pasos{border-top-color:var(--borde)}
+.contacto-negro .pasos li{border-bottom-color:var(--borde);color:var(--gris)}
+.contacto-negro .pasos li::before{color:var(--lima)}
+.contacto-negro .pasos strong{color:var(--blanco)}
+.contacto-negro .mensaje-wa{background:transparent;border:0;padding:8px 0 0}
+.caja-torcida{background:#F5F5F0;color:#0A0A0A;transform:rotate(-2deg);box-shadow:12px 12px 0 var(--lima);padding:34px 34px;margin:26px 14px 0 0}
+.contacto-negro .caja-torcida p{margin:0;font-size:clamp(19px,1.9vw,23px);line-height:1.6;font-weight:600}
+.caja-torcida b{font-weight:800;color:#0A0A0A}
+.contacto-negro .mensaje-wa .nota{margin-top:30px}
+.obj{box-shadow:0 1px 0 rgba(255,255,255,.06) inset,6px 6px 0 #050505,10px 10px 0 var(--lima),0 22px 34px rgba(0,0,0,.6)}
+.obj-noti{width:min(340px,82%)}.obj-busca{width:min(360px,84%)}
+@media (max-width:760px){.serv-card{padding:26px 22px 118px}.obj{right:18px;bottom:24px}.obj-busca{font-size:15px;padding:14px 18px}}
+@media (max-width:760px){.serv-card{padding:26px 22px 40px}.serv-card .obj{position:relative;right:auto;bottom:auto;margin-top:26px;width:calc(100% - 14px)}}
+/* Notificación que rota: mismo alto en los 3 estados para que no salte */
+.obj-noti .txt,.obj-noti .hora{transition:opacity .26s ease,transform .26s ease}
+.obj-noti.cambia .txt,.obj-noti.cambia .hora{opacity:0;transform:translateY(6px)}
+.obj-noti .txt{min-height:2.7em;justify-content:center}
+@media (max-width:760px){.obj-noti .txt{min-height:3.9em}}
+/* Barra de Google que tipea: ancho fijo, una sola línea y cursor que titila */
+.obj-busca .consulta{white-space:nowrap;overflow:hidden;min-width:0}
+.obj-busca .cursor{animation:titila 1s steps(1) infinite}
+@keyframes titila{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.obj-busca .cursor{animation:none}}
+@media (max-width:760px){.obj-busca{font-size:14px;gap:12px}}
+/* Contacto: el recuadro muestra el mensaje precargado, sin espacios para completar */
+.contacto-negro .caja-torcida p{font-size:clamp(22px,2.4vw,28px);line-height:1.4;font-weight:700}
+.contacto-negro .mensaje-wa .boton{margin-top:40px}

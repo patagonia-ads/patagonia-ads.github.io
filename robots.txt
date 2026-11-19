@@ -1,3 +1,9 @@
+# Buscadores y motores de respuesta con IA: acceso abierto a propósito.
+# Búsqueda e índice: Googlebot, Bingbot, OAI-SearchBot (ChatGPT), Claude-SearchBot,
+# PerplexityBot, Applebot. Consultas en vivo: ChatGPT-User, Claude-User, Perplexity-User.
+# Anuncios de ChatGPT: OAI-AdsBot valida la página de destino.
+# Todos entran por la regla general. Si algún día hay que cerrar uno, va en un bloque propio
+# y ese bloque tiene que repetir "Disallow: /ig/".
 User-agent: *
 Allow: /
 Disallow: /ig/
