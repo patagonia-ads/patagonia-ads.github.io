@@ -1,0 +1,116 @@
+/* Landings de Patagonia Ads. Se carga después de estilos.css y solo suma clases nuevas.
+   No redefine nada de la portada: si algo de acá choca con estilos.css, se renombra acá. */
+
+/* Migas */
+.migas{display:flex;flex-wrap:wrap;gap:8px;list-style:none;color:var(--gris-2);font-size:14px;font-weight:600}
+.migas li+li::before{content:"/";margin-right:8px;color:var(--borde)}
+.migas a{color:var(--gris);text-decoration:none}
+.migas a:hover{color:var(--lima)}
+
+/* Portada de guía */
+.guia-portada{padding:clamp(32px,5vw,64px) 0 clamp(56px,8vw,96px);border-bottom:1px solid var(--borde)}
+.guia-grilla{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px 56px;align-items:end;margin-top:28px}
+.guia-portada h1{font-size:clamp(40px,min(5.8vw,10vh),84px);line-height:1.1;max-width:18ch;margin-top:22px}
+.respuesta{color:var(--blanco);font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:60ch;margin-top:26px}
+.respuesta strong{color:var(--lima);font-weight:700}
+.firma{color:var(--gris-2);font-size:14px;font-weight:600;margin-top:22px}
+.firma a{color:var(--gris);text-underline-offset:3px}
+
+/* Objeto 3D de la portada: la subasta */
+.obj-subasta{position:relative;background:#1C1C1B;border:1px solid var(--borde);border-radius:18px;padding:22px 22px 20px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,6px 6px 0 #050505,10px 10px 0 var(--lima),0 22px 34px rgba(0,0,0,.6);margin:0 10px 10px 0}
+.obj-subasta .cab{display:flex;justify-content:space-between;align-items:center;color:var(--gris);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.obj-subasta .vivo{display:inline-flex;align-items:center;gap:7px;color:var(--lima)}
+.obj-subasta .vivo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lima)}
+.obj-subasta ul{list-style:none;margin-top:18px}
+.obj-subasta li{display:grid;grid-template-columns:minmax(0,1fr) 46%;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--borde);font-size:15px;font-weight:600;color:var(--blanco)}
+.obj-subasta .barra-s{height:10px;background:#2A2A28;border-radius:5px;overflow:hidden}
+.obj-subasta .barra-s i{display:block;height:100%;width:var(--v);background:var(--blanco);border-radius:5px}
+.obj-subasta li.total{border-bottom:0;padding-top:14px;font-weight:800}
+.obj-subasta li.total .barra-s{height:14px;border-radius:7px}
+.obj-subasta li.total .barra-s i{background:var(--lima)}
+.obj-subasta .pie-s{color:var(--gris);font-size:14px;margin-top:12px}
+@media (prefers-reduced-motion:no-preference){
+  .obj-subasta .barra-s i{animation:sube 1.4s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0) * 160ms + 300ms)}
+  @keyframes sube{from{width:0}}
+}
+
+/* Respuesta corta e índice */
+.en-corto{background:var(--caja);border:1px solid var(--borde);border-left:5px solid var(--lima);padding:28px 30px;margin-top:40px}
+.en-corto h2{font-size:clamp(30px,3.4vw,40px);margin-top:0}
+.en-corto ul{list-style:none;margin-top:14px}
+.en-corto li{position:relative;padding:8px 0 8px 26px;color:var(--gris)}
+.en-corto li::before{content:"";position:absolute;left:0;top:19px;width:12px;height:3px;background:var(--lima)}
+.en-corto li strong{color:var(--blanco)}
+.indice{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin-top:28px}
+.indice a{display:inline-block;border:1px solid var(--borde);padding:8px 14px;color:var(--gris);font-size:15px;font-weight:700;text-decoration:none}
+.indice a:hover{border-color:var(--lima);color:var(--lima)}
+
+/* Texto largo */
+.prosa{max-width:68ch}
+.prosa p{color:var(--gris);margin-top:18px}
+.prosa p strong{color:var(--blanco)}
+.prosa h3{margin-top:40px}
+.nota-chica{color:var(--gris-2);font-size:14px;margin-top:16px}
+
+/* Comparación de dos columnas */
+.comparar{margin-top:40px;font-size:16px}
+.comparar th,.comparar td{text-align:left;vertical-align:top;padding:14px 16px 14px 0}
+.comparar thead th{color:var(--lima);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.comparar th[scope=row]{color:var(--gris);width:22%}
+.comparar td{color:var(--blanco)}
+.comparar thead th:not(:first-child),.comparar tbody td{padding-left:0;padding-right:20px}
+@media (max-width:700px){
+  .comparar thead{display:none}
+  .comparar tr{display:block;border-bottom:1px solid var(--borde);padding:12px 0}
+  .comparar th[scope=row],.comparar td{display:block;width:auto;border:0;padding:4px 0}
+  .comparar th[scope=row]{color:var(--lima);font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+  .comparar td::before{content:attr(data-col) ": ";color:var(--gris-2);font-weight:700}
+}
+
+/* Pasos de la cuenta */
+.cuenta{list-style:none;margin-top:40px;border-top:1px solid var(--borde)}
+.cuenta li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;padding:22px 0;border-bottom:1px solid var(--borde)}
+.cuenta .num{font-family:"Staatliches",sans-serif;font-size:34px;line-height:1;font-weight:400;letter-spacing:0}
+.cuenta strong{display:block;font-size:20px;color:var(--blanco)}
+.cuenta p{color:var(--gris);margin-top:6px}
+.cuenta code{font-family:inherit;font-weight:700;color:var(--blanco);background:#1C1C1B;border:1px solid var(--borde);padding:1px 8px;white-space:nowrap}
+
+/* Calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;margin-top:48px;border:1px solid var(--borde);background:var(--caja)}
+.calc-datos{padding:30px;border-right:1px solid var(--borde)}
+.calc-datos h3,.calc-res h3{margin-top:0;font-size:14px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--lima)}
+.calc label{display:block;margin-top:20px;font-weight:700;font-size:16px}
+.calc label span{display:block;color:var(--gris-2);font-weight:500;font-size:14px}
+.calc .campo{display:flex;align-items:center;margin-top:8px;background:var(--negro);border:1px solid var(--borde)}
+.calc .campo b{padding:0 0 0 14px;color:var(--gris);font-weight:700}
+.calc input,.calc select{width:100%;background:transparent;border:0;color:var(--blanco);font:700 20px/1.2 "Barlow Semi Condensed",sans-serif;padding:12px 14px;font-variant-numeric:tabular-nums}
+.calc select{appearance:none;cursor:pointer}
+.calc select option{background:var(--negro)}
+.calc .campo:focus-within{border-color:var(--lima)}
+.calc input:focus-visible,.calc select:focus-visible{outline:0}
+.calc-res{padding:30px}
+.calc-res dl{margin-top:8px}
+.calc-res dl div{padding:14px 0;border-bottom:1px solid var(--borde)}
+.calc-res dt{color:var(--gris);font-size:15px;font-weight:600}
+.calc-res dd{font-weight:800;font-size:clamp(28px,3.2vw,38px);line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.02em}
+.calc-res dl div.clave dd{color:var(--lima)}
+.calc-res .lectura-calc{color:var(--gris);font-size:15px;margin-top:16px}
+.calc-res .lectura-calc.alerta{color:var(--blanco)}
+.calc-cta{margin-top:22px}
+@media (max-width:760px){.calc{grid-template-columns:1fr}.calc-datos{border-right:0;border-bottom:1px solid var(--borde)}.calc-datos,.calc-res{padding:24px 20px}}
+
+/* Aviso (impuestos) */
+.aviso{border:1px solid var(--borde);padding:26px 28px;margin-top:36px;max-width:68ch}
+.aviso h3{margin-top:0;font-size:20px}
+.aviso ul{list-style:none;margin-top:12px}
+.aviso li{padding:10px 0;border-bottom:1px solid var(--borde);color:var(--gris)}
+.aviso li:last-child{border-bottom:0}
+.aviso li strong{color:var(--blanco)}
+
+/* Quién escribe */
+.autor{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);padding:28px 0;margin-top:8px}
+.autor p{color:var(--gris);max-width:70ch}
+.autor p strong{color:var(--blanco)}
+@media (max-width:700px){.autor{grid-template-columns:1fr}}
+
+@media (max-width:900px){.guia-grilla{grid-template-columns:1fr}.obj-subasta{max-width:440px}}
